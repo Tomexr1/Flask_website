@@ -3,15 +3,150 @@
 <head>
 <meta charset="utf-8">
 <title>Funkcje logarytmiczne i wykładnicze</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css">
 <link rel="stylesheet", href="home_style.css">
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/javascript" charset="UTF-8"
+ src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+
 </head>
 <body>
 <header>Funkcje logarytmiczne i wykładnicze</header>
+<hr>
 <nav>
-    <a href="home.html">Główna</a> |
-    <a href="przyklady.html">Przykłady</a> |
-    <a href="o_projekcie.html">O projekcie</a> |
-    <a href="o_autorach.html">O autorach</a> 
+    <a href="home.html"><img src="graphics//home.png" alt=”tekst” id="home_icon">Główna</a> |
+    <a href="przyklady.html"><img src="graphics//przyklady.png" alt=”tekst” id="przyklady_icon">Przykłady</a> |
+    <a href="o_projekcie.html"><img src="graphics//info.png" alt=”tekst” id="info_icon">O projekcie</a> |
+    <a href="o_autorach.html"><img src="graphics//about.png" alt=”tekst” id="about_icon">O autorach</a> 
 </nav>
+<hr>
+<main>
+<article>
+<h1>Funkcja wykładnicza</h1>
+<div class="Definicja">
+<h2>Definicja</h2>
+<p>Funkcja wykładnicza to funkcja o wzorze:</p>
+\[f(x) = a^x,\]
+<p>gdzie \(a \in (0, 1) \cup (1, \infty).\)</p>
+</div>
+<hr>
+<div class="Wykresy">
+<h2>Wykresy</h2>
+<div id="Wykres1">
+    <div id="box1" class="jxgbox"></div>
+    <script>
+        var board = JXG.JSXGraph.initBoard('box1', {boundingbox: [-10, 20, 10, -1], axis: true});
+        var a1 = board.create('slider', [[2, 8], [8, 8], [0.01, 0.5, 0.99]], {name: 'a'});
+        var f = function(x) { return Math.pow(a1.Value(), x); };
+        var graph = board.create('functiongraph', [f, -10, 10]);
+    </script>
+    <div id="box2" class="jxgbox"></div>
+    <script>
+        var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-10, 20, 10, -1], axis: true});
+        var a2 = board.create('slider', [[-8, 8], [-2, 8], [1.01, 3, 5]], {name: 'a'});
+        var f = function(x) { return Math.pow(a2.Value(), x); };
+        var graph = board.create('functiongraph', [f, -10, 10]);
+    </script>
+</div>
+</div>
+
+<hr>
+
+<div class="Własności">
+<h2>Własności</h2>
+<p>Dla \(a < 1 \: f\) jest funkcją:</p>
+<ul>
+    <li>rosnącą,</li>
+    <li>różnowartościową,</li>
+    <li>ciągłą,</li>
+    <li>która zawsze przyjmuje wartość $1$ dla $x=0$,</li>
+    <li>o dziedzinie \(D=\mathbb{R}\) i zbiorze wartości \(f(D)=(0, \infty)\).</li>
+</ul>
+<p>Dla \(a > 1 \: f\) jest funkcją</p>
+<ul>
+    <li>malejącą,</li>
+    <li>różnowartościową,</li>
+    <li>ciągłą,</li>
+    <li>która zawsze przyjmuje wartość $1$ dla $x=0$,</li>
+    <li>o dziedzinie \(D=\mathbb{R}\) i zbiorze wartości \(f(D)=(0, \infty)\).</li>
+</ul>
+</div>
+
+<hr>
+
+<h1>Funkcja logarytmicza</h1>
+<div class="Definicja">
+<h2>Definicja</h2>
+<p>Funkcja logarytmiczna to funkcja o wzorze:</p>
+\[f(x) = \log_a x,\]
+<p>gdzie \(a \in (0, 1) \cup (1, \infty).\)</p>
+</div>
+
+<hr>
+
+<div class="Wykresy">
+<h2>Wykresy</h2>
+<div id="Wykres2">
+    <div id="box3" class="jxgbox"></div>
+    <script>
+        var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-10, 10, 10, -1], axis: true});
+        var a3 = board.create('slider', [[2, 8], [8, 8], [0.01, 0.5, 0.99]], {name: 'a'});
+        var f = function(x) { return Math.log(x) / Math.log(a3.Value()); };
+        var graph = board.create('functiongraph', [f, 0.01, 10]);
+    </script>
+    <div id="box4" class="jxgbox"></div>
+    <script>
+        var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-10, 10, 10, -1], axis: true});
+        var a4 = board.create('slider', [[-8, 8], [-2, 8], [1.01, 3, 5]], {name: 'a'});
+        var f = function(x) { return Math.log(x) / Math.log(a4.Value()); };
+        var graph = board.create('functiongraph', [f, 0.01, 10]);
+    </script>
+    </div>
+</div>
+
+<hr>
+
+<div class="Własności">
+<h2>Własności</h2>
+<p>Dla \(a < 1 \: f\) jest funkcją: </p>
+<ul>
+    <li>malejącą,</li>
+    <li>różnowartościową,</li>
+    <li>ciągłą,</li>
+    <li>która zawsze ma miejsce zerowe w $x=1$,</li>
+    <li>o dziedzinie \(D=(0, \infty)\) i zbiorze wartości \(f(D)=\mathbb{R}\).</li>
+</ul>
+<p>Dla \(a > 1 \: f\) jest funkcją</p>
+<ul>
+    <li>rosnącą,</li>
+    <li>różnowartościową,</li>
+    <li>ciągłą,</li>
+    <li>która zawsze ma miejsce zerowe w $x=1$,</li>
+    <li>o dziedzinie \(D=(0, \infty)\) i zbiorze wartości \(f(D)=\mathbb{R}\).</li>
+</ul>
+</div>
+
+
+</article>
+
+
+
+
+</main>
+  
 </body>
 </html>
