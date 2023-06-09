@@ -1,0 +1,4 @@
+Cześć! Z tej strony Asia, Tomek i Igor. Jesteśmy studentami pierwszego roku matematyki stosowanej 
+na Politechnice Wrocławskiej. Na naszym kierunku, oprócz pogłębiania wiedzy matematycznej, uczymy się 
+technologii przydatnych do tworzenia i publikowania treści naukowych. 
+Podczas drugiego semestru mieliśmy okazję zapoznać się z Gitem, systemem składu tekstu LaTeX (złóż odpowiednio) oraz zestawem narzędzi potrzebnych do tworzenia stron internetowych. To właśnie, aby zademonstrować nowo nabyte umiejętności powstała ta strona. Po więcej szczegółów kliknij tutaj. (tutaj jako hiperłącze do podstrony "o projekcie")
