@@ -15,9 +15,9 @@ main {
     
 header {
     width: 100%;
-    height: 7rem;
+    height: 4.8rem;
     text-align: center;
-    font-size: 5rem;
+    font-size: 3.8rem;
     color : #3c280c;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-decoration: underline;
@@ -31,9 +31,9 @@ hr {
 nav {
     background-color: #3c280c;
     width: 100%;
-    height: 3.2rem;
+    height: 3rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     }
@@ -69,7 +69,7 @@ nav {
     }
     #about_icon {
         position: relative;
-        top: 0.5rem;
+        top: 0.7rem;
         width: 2rem;
         height: 2rem;
     }
@@ -101,12 +101,12 @@ h1 {
     color: #3c280c;
     }
 .Definicja {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
     }
 .Wykresy {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
     }
@@ -120,23 +120,35 @@ h1 {
     display: flex; 
 } */
 #box1 {
-    height: 20rem;
-    margin-bottom: 6rem;
+    /* height: 20rem;
+    margin-bottom: 6rem; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 #box2 {
-    height: 20rem;
-    margin-bottom: 6rem;
+    /* height: 20rem;
+    margin-bottom: 6rem; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 #box3 {
-    height: 20rem;
-    margin-bottom: 6rem;
+    /* height: 20rem;
+    margin-bottom: 6rem; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 #box4 {
-    height: 20rem;
-    margin-bottom: 6rem;
+    /* height: 20rem;
+    margin-bottom: 6rem; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 .Własności {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     display: flex;
     margin-bottom: 4rem;
