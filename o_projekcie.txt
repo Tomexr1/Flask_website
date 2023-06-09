@@ -1,0 +1,9 @@
+Treści zawarte na stronie głównej oraz w przykładach mają za zadanie przybliżyć Czytelnikowi pojęcie funkcji wykładniczej oraz logarytmicznej, a także wskazać odpowiednie metody do samodzielnego rozwiązywania zadań.
+Po więcej przykładowych rozwiązań warto obejrzeć filmik. (hiperłącze https://www.youtube.com/watch?v=10I_TVuYLkQ&t=162s)
+
+Strona powstała w celu zrealizowania projektu z technologii informacyjnych - kursu odbywającego się 
+na 2. semestrze matematyki stosowanej na Politechnice Wrocławskiej.
+Podczas wykonywania zadania korzystaliśmy z poznanych na wykładzie języków: HTML, CSS, ECMAScript 
+oraz biblioteki Python Flask. Ponadto, do przechowywania niezbędnych plików oraz dzielenia się rezultatami pracy grupy posługiwaliśmy się systemem kontroli wersji Git.
+Szczegółowe informacje dotyczące projektu oraz zastosowanych narzędzi można znaleźć tutaj. (tutaj 
+jako hiperłącze do strony dr Giniewicza o ti)
