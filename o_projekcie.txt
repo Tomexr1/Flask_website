@@ -1,5 +1,5 @@
 Treści zawarte na stronie głównej oraz w przykładach mają za zadanie przybliżyć Czytelnikowi pojęcie funkcji wykładniczej oraz logarytmicznej, a także wskazać odpowiednie metody do samodzielnego rozwiązywania zadań.
-Po więcej przykładowych rozwiązań warto obejrzeć filmik. (hiperłącze https://www.youtube.com/watch?v=10I_TVuYLkQ&t=162s)
+Po więcej przykładowych rozwiązań warto obejrzeć filmik. (hiperłącze https://www.youtube.com/watch?v=fFc4I-3I1FA)
 
 Strona powstała w celu zrealizowania projektu z technologii informacyjnych - kursu odbywającego się 
 na 2. semestrze matematyki stosowanej na Politechnice Wrocławskiej.
