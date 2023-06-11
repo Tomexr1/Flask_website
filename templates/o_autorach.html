@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Funkcje logarytmiczne i wykładnicze</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css">
+<link rel="stylesheet", href="{{ url_for('static', filename='css/home_style.css') }}">
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="text/javascript" charset="UTF-8"
+ src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
+
+</head>
+<body>
+<header>Funkcje logarytmiczne i wykładnicze</header>
+<hr>
+<nav>
+    <div class="button"><a href="/home"><img src="{{url_for('static', filename='graphics/home.png')}}" alt=”icon” id="home_icon">Główna</a></div>
+    <div class="button" id="przyklady_button"><span><img src="{{url_for('static', filename='graphics/przyklady.png')}}"  alt=”icon” id="przyklady_icon">Przykłady</span>
+    <div class="dropdown-content">
+        <a href="/przyklady">Logarytmiczne</a>
+        <a href="/przyklady">Wykładnicze</a>
+    </div>
+    </div>
+    <div class="button"><a href="/o_projekcie"><img src="{{url_for('static', filename='graphics/info.png')}}"  alt=”icon” id="info_icon">O projekcie</a></div>
+    <div class="button" id="active"><a href="/o_autorach"><img src="{{url_for('static', filename='graphics/about.png')}}" alt=”tekst” id="about_icon">O autorach</a></div>
+</nav>
+<hr>
+
+<footer>
+    <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak |
+    <a href="/home">Główna</a> |
+    <a href="/przyklady">Przykłady logarytmiczne</a> |
+    <a href="/przyklady">Przykłady wykładnicze</a> |
+    <a href="/o_projekcie">O projekcie</a> |
+    <a href="/o_autorach">O autorach</a>
+    </p>
+</footer>
+  
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script>
+    $(".button").on("mouseenter", function(){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        if (this.id != "active") {
+            $(this).css("background-color", "#3c280c");
+        }
+    });
+
+    $("footer a").on("mouseenter", function(){
+        $(this).css("color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("color", "white");
+    });
+    $("#przyklady_button").on("click", function(e){
+        $(".dropdown-content").toggleClass("show");
+    });
+    $("#przyklady_button").on("mouseleave", function(e){
+        $(".dropdown-content").removeClass("show");
+    });
+    $(".dropdown-content a").on("mouseenter", function(e){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(e){
+        $(".dropdown-content a").css("background-color", "#3c280c");
+    });
+</script>
+</body>
+</html>
