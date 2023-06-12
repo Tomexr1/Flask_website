@@ -43,12 +43,12 @@ nav {
 #active:hover {
     cursor: pointer;
 }
-    .button {
+    /* .button {
         flex : 1;
         height: 3.2rem;
         margin: 0 1rem;
         border: 1rem;
-    }
+    } */
     #przyklady_button:hover {
         cursor: pointer;
     }
