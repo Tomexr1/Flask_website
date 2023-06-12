@@ -5,7 +5,7 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 @app.route('/')
 def hello_world():
-    return redirect(url_for('przyklady'))
+    return redirect(url_for('home'))
 
 @app.route('/home')
 def home():
