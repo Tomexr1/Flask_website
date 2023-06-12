@@ -12,9 +12,13 @@ def hello_world():
 def home():
     return render_template('home.html')
 
-@app.route('/przyklady')
-def przyklady():
-    return render_template('przyklady.html')
+@app.route('/przyklady_wyk')
+def przyklady_wyk():
+    return render_template('przyklady_wyk.html')
+
+@app.route('/przyklady_log')
+def przyklady_log():
+    return render_template('przyklady_log.html')
 
 @app.route('/o_projekcie')
 def projekt():

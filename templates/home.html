@@ -30,10 +30,10 @@
 <hr>
 <nav>
     <div class="button" id="active"><a href="/home"><img src="{{url_for('static', filename='graphics/home.png')}}" alt=”icon” id="home_icon">Główna</a></div>
-    <div class="button" id="przyklady_button"><span><img src="{{url_for('static', filename='graphics/przyklady.png')}}"  alt=”icon” id="przyklady_icon">Przykłady</span>
+    <div class="button" id="przyklady_button"><span><img src="{{url_for('static', filename='graphics/przyklady.png')}}"  alt=”icon” id="przyklady_icon">Przykłady i zadania</span>
     <div class="dropdown-content">
-        <a href="/przyklady">Logarytmiczne</a>
-        <a href="/przyklady">Wykładnicze</a>
+        <a href="/przyklady_wyk">Funkcje wykładnicze</a>
+        <a href="/przyklady_log">Funkcje logarytmiczne</a>
     </div>
     </div>
     <div class="button"><a href="/o_projekcie"><img src="{{url_for('static', filename='graphics/info.png')}}"  alt=”icon” id="info_icon">O projekcie</a></div>
@@ -46,7 +46,7 @@
 <h1>Funkcja wykładnicza</h1>
 <div class="Definicja">
 <h2>Definicja</h2>
-<p>Funkcja wykładnicza to funkcja o wzorze:</p>
+<p>Funkcja wykładnicza to funkcja o wzorze</p>
 \[f(x) = a^x,\]
 <p>gdzie \(a \in (0, 1) \cup (1, \infty).\)</p>
 </div>
@@ -111,7 +111,7 @@
 <h1>Funkcja logarytmicza</h1>
 <div class="Definicja">
 <h2>Definicja</h2>
-<p>Funkcja logarytmiczna to funkcja o wzorze:</p>
+<p>Funkcja logarytmiczna to funkcja o wzorze</p>
 \[f(x) = \log_a x,\]
 <p>gdzie \(a \in (0, 1) \cup (1, \infty).\)</p>
 </div>
@@ -187,8 +187,8 @@ Konto i lista z ulubionymi przykładami -->
 <footer>
     <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak |
     <a href="/home">Główna</a> |
-    <a href="/przyklady">Przykłady logarytmiczne</a> |
-    <a href="/przyklady">Przykłady wykładnicze</a> |
+    <a href="/przyklady_wyk">Funkcje wykładnicze</a> |
+    <a href="/przyklady_log">Funkcje logarytmiczne</a> |
     <a href="/o_projekcie">O projekcie</a> |
     <a href="/o_autorach">O autorach</a>
     </p>

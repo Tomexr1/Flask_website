@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Funkcje logarytmiczne i wykładnicze</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sugina-dev/latin-modern-web@1.0.1/style/latinmodern-mono.css">
-<link rel="stylesheet", href="{{ url_for('static', filename='css/home_style.css') }}">
+<link rel="stylesheet", href="{{ url_for('static', filename='css/przyklady_style.css') }}">
 
 <script>
     MathJax = {
@@ -29,29 +29,27 @@
 <hr>
 <nav>
     <div class="button"><a href="/home"><img src="{{url_for('static', filename='graphics/home.png')}}" alt=”icon” id="home_icon">Główna</a></div>
-    <div class="button" id="przyklady_button"><span><img src="{{url_for('static', filename='graphics/przyklady.png')}}"  alt=”icon” id="przyklady_icon">Przykłady i zadania</span>
+    <div class="button" id="active"><span><img src="{{url_for('static', filename='graphics/przyklady.png')}}"  alt=”icon” id="przyklady_icon">Przykłady i zadania</span>
     <div class="dropdown-content">
         <a href="/przyklady_wyk">Funkcje wykładnicze</a>
         <a href="/przyklady_log">Funkcje logarytmiczne</a>
     </div>
     </div>
-    <div class="button" id="active"><a href="/o_projekcie"><img src="{{url_for('static', filename='graphics/info.png')}}"  alt=”icon” id="info_icon">O projekcie</a></div>
+    <div class="button"><a href="/o_projekcie"><img src="{{url_for('static', filename='graphics/info.png')}}"  alt=”icon” id="info_icon">O projekcie</a></div>
     <div class="button"><a href="/o_autorach"><img src="{{url_for('static', filename='graphics/about.png')}}" alt=”tekst” id="about_icon">O autorach</a></div>
 </nav>
 <hr>
 
 <main>
-
-    Treści zawarte na stronie głównej oraz w przykładach mają za zadanie przybliżyć Czytelnikowi pojęcie funkcji wykładniczej oraz logarytmicznej, a także wskazać odpowiednie metody do samodzielnego rozwiązywania zadań.
-Po więcej przykładowych rozwiązań warto obejrzeć filmik. (hiperłącze https://www.youtube.com/watch?v=fFc4I-3I1FA)
-
-Strona powstała w celu zrealizowania projektu z technologii informacyjnych - kursu odbywającego się 
-na 2. semestrze matematyki stosowanej na Politechnice Wrocławskiej.
-Podczas wykonywania zadania korzystaliśmy z poznanych na wykładzie języków: HTML, CSS, ECMAScript 
-oraz biblioteki Python Flask. Ponadto, do przechowywania niezbędnych plików oraz dzielenia się rezultatami pracy grupy posługiwaliśmy się systemem kontroli wersji Git.
-Szczegółowe informacje dotyczące projektu oraz zastosowanych narzędzi można znaleźć tutaj. (tutaj 
-jako hiperłącze do strony dr Giniewicza o ti)
+<h1>Funkcja wykładnicza</h1>
+<div class="Definicja">
+<h2>Definicja</h2>
+<p>Funkcja wykładnicza to funkcja o wzorze:</p>
+\[f(x) = a^x,\]
+<p>gdzie \(a \in (0, 1) \cup (1, \infty).\)</p>
+</div>
 </main>
+
 
 <footer>
     <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak |
@@ -78,10 +76,10 @@ jako hiperłącze do strony dr Giniewicza o ti)
     }).on("mouseleave", function(){
         $(this).css("color", "white");
     });
-    $("#przyklady_button").on("click", function(e){
+    $("#active").on("click", function(e){
         $(".dropdown-content").toggleClass("show");
     });
-    $("#przyklady_button").on("mouseleave", function(e){
+    $("#active").on("mouseleave", function(e){
         $(".dropdown-content").removeClass("show");
     });
     $(".dropdown-content a").on("mouseenter", function(e){
