@@ -177,10 +177,14 @@
 </main>
 
 <aside>
-<!-- 
-Konto i lista z ulubionymi przykładami -->
-
-
+    {% if current_user.is_authenticated %}
+    <h1>Jesteś zalogowany jako <em style="color: blue">{{ current_user.username }}</em> </h1>
+    <a href="/logout" style="color: brown">Logout</a>
+    {% else %}
+    <a href="/login" style="color: brown">Login</a>
+    <a href="/sign_up" style="color: brown">Register</a>
+    <h1>Nie jesteś zalogowany</h1>
+    {% endif %}
 </aside>
 </div>
 
