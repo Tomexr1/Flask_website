@@ -17,7 +17,7 @@ class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable = False)
     password = db.Column(db.String(100), nullable = False)
-
+    liked = db.Column(db.String(1000), nullable = True)
 
 db.init_app(app)
 
