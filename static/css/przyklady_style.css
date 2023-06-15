@@ -134,23 +134,26 @@ h1 {
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: center;
     text-decoration: underline;
-    color: #3c280c;
+    color: white;
     }
-.Definicja {
+.Treść {
     font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
+    color: white
     }
-.Wykresy {
-    font-size: 1.2rem;
+.Rozwiązanie {
+    font-size: 1.rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
+    color: white
     }
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-family: 'Times New Roman', Arial, sans-serif;
         text-align: center;
         text-decoration: none;
+        
     }
 /* #Wykres1 {
     display: flex; 
