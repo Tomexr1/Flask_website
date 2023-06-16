@@ -56,10 +56,13 @@ Podczas drugiego semestru mieliśmy okazję zapoznać się z Gitem, systemem sk�
     {% if current_user.liked %}
     Moje polubione przykłady:
     <ul>
-        
         {% set liked = current_user.liked.split(',') %}
         {% for example in liked %}
-        <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
+            {% if 'Wykładnicze' in example %}
+                <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
+            {% else %}
+                <li><a href="{{ url_for('.przyklady_log', _anchor=example)}}">{{ example }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
     {% else %}
