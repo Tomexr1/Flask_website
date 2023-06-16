@@ -3,16 +3,35 @@
 <head>
 <meta charset="utf-8">
 <title>Rejestracja</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login_style.css') }}">
 </head>
 <body>
+<div id="formularz">
 <h1>Rejestracja</h1>
 <form method="POST" action="#">
     <label for="username">Nazwa uzytkownika</label> 
-    <input type="text" name="username" placeholder="Nazwa użytkownika">
+    <input type="text" name="username" placeholder="Nazwa użytkownika"> 
+    <br>
     <label for="password">Hasło</label>
     <input type="password" name="password" placeholder="Hasło">
+    <br>
     <button type="submit">Zarejestruj</button>
+    {% if 'url' in session %}
+        <a href="{{ session['url'] }}">Powrót</a>
+    {% else %}
+        <a href="/home">Powrót</a>
+    {% endif %}
 </form>
-<a href="/home">Powrót</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<script>
+    $("button, a").on("mouseenter", function(){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("background-color", "#3c280c");
+    });
+</script>
 </body>
 </html>

@@ -12,6 +12,20 @@ main {
     margin: 2rem auto;
     padding : 1% 5%;
     }
+
+aside {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow-y: scroll;
+    height: fit-content;
+    text-align: center;
+    }
     
 header {
     width: 100%;
@@ -115,11 +129,13 @@ nav {
     flex-direction: row;
     justify-content: center;
     /* align-items: center; */
+    margin-right: 2rem;
+    margin-left: 2rem;
     }
-.main {
+main {
     flex: 8;
 }
-.aside {
+aside {
     flex: 2;
 }
 
@@ -148,12 +164,12 @@ h1 {
     text-align: left;
     color: white
     }
-    h3 {
-        font-size: 1.4rem;
-        font-family: 'Times New Roman', Arial, sans-serif;
-        text-align: center;
-        text-decoration: none;
-        
+.Rozwiązanie h3 {
+    font-size: 1.4rem;
+    font-family: 'Times New Roman', Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    
     }
 /* #Wykres1 {
     display: flex; 
@@ -214,4 +230,19 @@ footer p a {
     margin: 0;
     padding: 1rem 0;
     text-decoration: none;
+}
+
+.aside_button {
+    margin-bottom: 0.5rem;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+aside a {
+    background-color: #3c280c;
+}
+
+aside h3 {
+    font-size: 1.5rem;
 }

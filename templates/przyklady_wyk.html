@@ -40,6 +40,8 @@
 </nav>
 <hr>
 
+
+<div class="content">
 <main>
 <h1>Przykłady</h1>
 <div class="Treść">
@@ -57,12 +59,31 @@
 <!-- &\big\Updownarrow \\[5pt] -->
 \text{z różnowartośc} &\text{iowości mamy}\\[5pt]
 \frac{1}{3}\, x-1 &= \frac{4}{3}\, x+8 \\[5pt]
-x &= 9
+x &= -9
 \end{aligned}\]
 </h3>
-<h2>Odpowiedź: \(x = 9\)</h2>
+<h2>Odpowiedź: \(x = -9\)</h2>
 </div>
 </main>
+
+<aside>
+    {% if current_user.is_authenticated %}
+    <h2>Zalogowano jako</h2>
+    <h2>{{ current_user.username }}</h2>
+    Moje polubione przykłady:
+    <ul>
+        {% for example in current_user.examples %}
+        <li><a href="/{{ example.type }}/{{ example.id }}">{{ example.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="aside_button"><a href="/logout">Wyloguj</a></div>
+    {% else %}
+    <h3>Nie jesteś zalogowany</h3>
+    <div class="aside_button"><a href="/login">Zaloguj</a></div>
+    <div class="aside_button"><a href="/sign_up">Zarejestruj</a></div>
+    {% endif %}
+</aside>
+</div>
 
 
 <footer>
@@ -83,6 +104,12 @@ x &= 9
         if (this.id != "active") {
             $(this).css("background-color", "#3c280c");
         }
+    });
+
+    $("aside a").on("mouseenter", function(){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("background-color", "#3c280c");
     });
 
     $("footer a").on("mouseenter", function(){

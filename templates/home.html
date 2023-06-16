@@ -178,12 +178,19 @@
 
 <aside>
     {% if current_user.is_authenticated %}
-    <h1>Jesteś zalogowany jako <em style="color: blue">{{ current_user.username }}</em> </h1>
-    <a href="/logout" style="color: brown">Logout</a>
+    <h2>Zalogowano jako</h2>
+    <h2>{{ current_user.username }}</h2>
+    Moje polubione przykłady:
+    <ul>
+        {% for example in current_user.examples %}
+        <li><a href="/{{ example.type }}/{{ example.id }}">{{ example.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="aside_button"><a href="/logout">Wyloguj</a></div>
     {% else %}
-    <a href="/login" style="color: brown">Login</a>
-    <a href="/sign_up" style="color: brown">Register</a>
-    <h1>Nie jesteś zalogowany</h1>
+    <h3>Nie jesteś zalogowany</h3>
+    <div class="aside_button"><a href="/login">Zaloguj</a></div>
+    <div class="aside_button"><a href="/sign_up">Zarejestruj</a></div>
     {% endif %}
 </aside>
 </div>
@@ -206,6 +213,12 @@
         if (this.id != "active") {
             $(this).css("background-color", "#3c280c");
         }
+    });
+
+    $("aside a").on("mouseenter", function(){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("background-color", "#3c280c");
     });
 
     $("footer a").on("mouseenter", function(){

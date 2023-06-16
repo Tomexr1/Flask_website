@@ -40,6 +40,7 @@
 </nav>
 <hr>
 
+<div class="content">
 <main>
 
     Cześć! Z tej strony Asia i Tomek. Jesteśmy studentami pierwszego roku matematyki stosowanej 
@@ -47,6 +48,25 @@ na Politechnice Wrocławskiej. Na naszym kierunku, oprócz pogłębiania wiedzy 
 technologii przydatnych do tworzenia i publikowania treści naukowych. 
 Podczas drugiego semestru mieliśmy okazję zapoznać się z Gitem, systemem składu tekstu LaTeX (złóż odpowiednio) oraz zestawem narzędzi potrzebnych do tworzenia stron internetowych. To właśnie, aby zademonstrować nowo nabyte umiejętności powstała ta strona. Po więcej szczegółów kliknij tutaj. (tutaj jako hiperłącze do podstrony "o projekcie")
 </main>
+
+<aside>
+    {% if current_user.is_authenticated %}
+    <h2>Zalogowano jako</h2>
+    <h2>{{ current_user.username }}</h2>
+    Moje polubione przykłady:
+    <ul>
+        {% for example in current_user.examples %}
+        <li><a href="/{{ example.type }}/{{ example.id }}">{{ example.title }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="aside_button"><a href="/logout">Wyloguj</a></div>
+    {% else %}
+    <h3>Nie jesteś zalogowany</h3>
+    <div class="aside_button"><a href="/login">Zaloguj</a></div>
+    <div class="aside_button"><a href="/sign_up">Zarejestruj</a></div>
+    {% endif %}
+</aside>
+</div>
 
 <footer>
     <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak |
@@ -66,6 +86,12 @@ Podczas drugiego semestru mieliśmy okazję zapoznać się z Gitem, systemem sk�
         if (this.id != "active") {
             $(this).css("background-color", "#3c280c");
         }
+    });
+
+    $("aside a").on("mouseenter", function(){
+        $(this).css("background-color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("background-color", "#3c280c");
     });
 
     $("footer a").on("mouseenter", function(){

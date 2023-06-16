@@ -5,12 +5,25 @@ html {
     /* -o-background-size: cover; */
     background-size: cover;
     }
-/* set background on top of the main one */
 main {
     background-color: rgba(255, 255, 255, 0.5);
     width: 80%;
     margin: 2rem auto;
     padding : 1% 5%;
+    }
+
+aside {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow-y: scroll;
+    height: fit-content;
+    text-align: center;
     }
     
 header {
@@ -43,9 +56,7 @@ nav {
     background-color: #9a7b4f;
 }
 /* .button {
-    flex: 1;
-    flex-shrink: 3;
-    align-items: center;
+    background-color: #3c280c;
 } */
 
 
@@ -115,11 +126,13 @@ nav {
     flex-direction: row;
     justify-content: center;
     /* align-items: center; */
+    margin-right: 2rem;
+    margin-left: 2rem;
     }
-.main {
+main {
     flex: 8;
 }
-.aside {
+aside {
     flex: 2;
 }
 
@@ -211,4 +224,19 @@ footer p a {
     margin: 0;
     padding: 1rem 0;
     text-decoration: none;
+}
+
+.aside_button {
+    margin-bottom: 0.5rem;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+aside a {
+    background-color: #3c280c;
+}
+
+aside h3 {
+    font-size: 1.5rem;
 }

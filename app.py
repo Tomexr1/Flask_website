@@ -24,6 +24,7 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+liked_dict = {}
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -57,6 +58,8 @@ def login():
             if user:
                 if user.password == request.form.get('password'):
                     login_user(user)
+                    if 'url' in session:
+                        return redirect(session['url'])
                     return redirect(url_for('home'))
                 else:
                     flash('Wrong password')
@@ -71,26 +74,33 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
+    if 'url' in session:
+        return redirect(session['url'])
     return redirect(url_for('home'))
 
 @app.route('/home')
 def home():
+    session['url'] = url_for('home')
     return render_template('home.html')
 
 @app.route('/przyklady_wyk')
 def przyklady_wyk():
+    session['url'] = url_for('przyklady_wyk')
     return render_template('przyklady_wyk.html')
 
 @app.route('/przyklady_log')
 def przyklady_log():
+    session['url'] = url_for('przyklady_log')
     return render_template('przyklady_log.html')
 
 @app.route('/o_projekcie')
 def projekt():
+    session['url'] = url_for('projekt')
     return render_template('o_projekcie.html')
 
 @app.route('/o_autorach')
 def autorzy():
+    session['url'] = url_for('autorzy')
     return render_template('o_autorach.html')
 
 
