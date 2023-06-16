@@ -44,8 +44,15 @@
 <div class="content">
 <main>
 <h1>Przykłady</h1>
-<div class="Treść" id="w_p1">
-<h2>Przykład 1.</h2>
+<div class="Treść" id="Wykładnicze P1">
+    <h2>Przykład 1.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze P1">Zapisz</button>
+                <button name="usun" value="Wykładnicze P1">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
 <p>Wyznacz \(x\) spełniające równanie</p>
 <h3>
 \[\left(\sqrt[3]{2} \right)^{x-3} = 16 ^ {\frac{1}{3}\, x+2}\, .\]
@@ -65,8 +72,15 @@ x &= -9
 <h2>Odpowiedź: \(x = -9\)</h2>
 </div>
 <br></br>
-<div class="Treść" id="w_p2">
-    <h2>Przykład 2.</h2>
+<div class="Treść" id="Wykładnicze P2">
+    <h2>Przykład 2.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze P2">Zapisz</button>
+                <button name="usun" value="Wykładnicze P2">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające nierówność</p>
     <h3>
     \[\left(0,2 \right)^{4\, x+3} \geqslant 5 ^ {x+2}.\]
@@ -86,8 +100,15 @@ x &= -9
     <h2>Odpowiedź: \(x \in \left( \infty, -1 \right\rangle\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_p3">
-    <h2>Przykład 3.</h2>
+<div class="Treść" id="Wykładnicze P3">
+    <h2>Przykład 3.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze P3">Zapisz</button>
+                <button name="usun" value="Wykładnicze P3">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające równanie</p>
     <h3>
     \[\left(\frac{3}{4} \right)^{x^3} = \left( \frac{4}{3}\right)^{x^2+x}. \]
@@ -110,8 +131,15 @@ x &= -9
     <h2>Odpowiedź: \(x=0\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_p4">
-    <h2>Przykład 4.</h2>
+<div class="Treść" id="Wykładnicze P4">
+    <h2>Przykład 4.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze P4">Zapisz</button>
+                <button name="usun" value="Wykładnicze P4">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające równanie</p>
     <h3>
     \[\left( 0,5 \right)^{x^2} \cdot 2^{2\, x+2} = \frac{1}{64}. \]
@@ -135,8 +163,15 @@ x &= -9
     <h2>Odpowiedź: \(x=4 \vee x=-2\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_p5">
-    <h2>Przykład 5.</h2>
+<div class="Treść" id="Wykładnicze P5">
+    <h2>Przykład 5.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze P5">Zapisz</button>
+                <button name="usun" value="Wykładnicze P5">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające nierówność</p>
     <h3>
     \[\left( \frac{2}{3} \right)^{x^3+6\, x^2} - \left( \frac{16}{81} \right)^{6\, x+16} \geqslant 0. \]
@@ -162,8 +197,15 @@ x &= -9
     <h2>Odpowiedź: \(x \in \left( -\infty, -8\right\rangle \cup \left\langle -2, 4\right\rangle\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_z1">
-    <h2>Zadanie 1.</h2>
+<div class="Treść" id="Wykładnicze ZAD1">
+    <h2>Zadanie 1.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze ZAD1">Zapisz</button>
+                <button name="usun" value="Wykładnicze ZAD1">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające równanie</p>
     <h3>
     \[ \sqrt[6]{4^x \cdot 0,125^{\frac{1}{x}}} = \frac{4\sqrt[3]{2}}{\left(\sqrt{2}\right)^x}. \]
@@ -187,8 +229,15 @@ x &= -9
     <h2>Odpowiedź: \(x=3\vee x=-\frac{1}{5}\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_z2">
-    <h2>Zadanie 2.</h2>
+<div class="Treść" id="Wykładnicze ZAD2">
+    <h2>Zadanie 2.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze ZAD2">Zapisz</button>
+                <button name="usun" value="Wykładnicze ZAD2">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające nierówność</p>
     <h3>
     \[ 3^{\frac{x}{x+2}}> \frac{3}{3^{\frac{1}{x-1}}}. \]
@@ -213,8 +262,15 @@ x &= -9
     <h2>Odpowiedź: \(x \in \left(-\infty, -2\right)\cup \left( 1, 4\right)\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_z3">
-    <h2>Zadanie 3.</h2>
+<div class="Treść" id="Wykładnicze ZAD3">
+    <h2>Zadanie 3.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze ZAD3">Zapisz</button>
+                <button name="usun" value="Wykładnicze ZAD3">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające równanie</p>
     <h3>
     \[ 4^{\sqrt{x-1}+1}-4^{\sqrt{x-1}-\frac{1}{2}}=7. \]
@@ -238,8 +294,15 @@ x &= -9
     <h2>Odpowiedź: \(x = \frac{5}{4}\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_z4">
-    <h2>Zadanie 4.</h2>
+<div class="Treść" id="Wykładnicze ZAD4">
+    <h2>Zadanie 4.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze ZAD4">Zapisz</button>
+                <button name="usun" value="Wykładnicze ZAD4">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
     <p>Wyznacz \(x\) spełniające nierówność</p>
     <h3>
     \[ 3^{3\, x+1}-4\cdot 27^{x-1}+9^{1,5\, x-1} &lt 80. \]
@@ -262,8 +325,20 @@ x &= -9
     <h2>Odpowiedź: \(x \in \left( -\infty, 1\right)\).</h2>
     </div>
 <br></br>
-<div class="Treść" id="w_z5">
-    <h2>Zadanie 5.<span id="liked_w_r5">(Zapisz)</span></h2>
+<div class="Treść" id="Wykładnicze ZAD5">
+    <h2>Zadanie 5.
+        {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                <button name="zapisz" value="Wykładnicze ZAD5">Zapisz</button>
+                <button name="usun" value="Wykładnicze ZAD5">Usuń</button>
+            </form>
+         {% endif %}
+    </h2>
+    <!-- {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "message">
+            {{ message }}
+         </div>
+    {%- endfor %}      -->
     <p>Wyznacz \(x\) spełniające równanie</p>
     <h3>
     \[ 2^{x^2-x+2}+5\cdot 2^{x^2-x-1}=26. \]
@@ -293,12 +368,18 @@ x &= -9
     {% if current_user.is_authenticated %}
     <h2>Zalogowano jako</h2>
     <h2>{{ current_user.username }}</h2>
+    {% if current_user.liked %}
     Moje polubione przykłady:
     <ul>
-        {% for example in current_user.examples %}
-        <li><a href="/{{ example.type }}/{{ example.id }}">{{ example.title }}</a></li>
+        
+        {% set liked = current_user.liked.split(',') %}
+        {% for example in liked %}
+        <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
         {% endfor %}
     </ul>
+    {% else %}
+    Brak polubionych.
+    {% endif %}
     <div class="aside_button"><a href="/logout">Wyloguj</a></div>
     {% else %}
     <h3>Nie jesteś zalogowany</h3>
@@ -370,10 +451,16 @@ x &= -9
         $('#w_r5').toggle();
     });
 
-    $("aside a").on("mouseenter", function(){
+    $(".aside_button a").on("mouseenter", function(){
         $(this).css("background-color", "#9a7b4f");
     }).on("mouseleave", function(){
         $(this).css("background-color", "#3c280c");
+    });
+
+    $('aside ul li a').on("mouseenter", function(){
+        $(this).css("color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("color", "#3c280c");
     });
 
     $("footer a").on("mouseenter", function(){

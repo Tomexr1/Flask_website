@@ -21,6 +21,11 @@
     {% else %}
         <a href="/home">Powrót</a>
     {% endif %}
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "message">
+            {{ message }}
+         </div>
+    {%- endfor %}
 </form>
 </div>
 

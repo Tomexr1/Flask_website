@@ -40,7 +40,7 @@ def sign_up():
         if request.method == 'POST':
             user = Users.query.filter_by(username=request.form.get('username')).first()
             if user:
-                flash('Username already exists')
+                flash('Nazwa użytkownika zajęta')
                 return redirect(url_for('sign_up'))
             new_user = Users(username=request.form.get('username'), password=request.form.get('password'))
             db.session.add(new_user)
@@ -62,10 +62,10 @@ def login():
                         return redirect(session['url'])
                     return redirect(url_for('home'))
                 else:
-                    flash('Wrong password')
+                    flash('Złe hasło')
                     return redirect(url_for('login'))
             else:
-                flash('User does not exist')
+                flash('Nie ma takiego użytkownika')
                 return redirect(url_for('login'))
         return render_template('login.html')
     else:
@@ -83,10 +83,36 @@ def home():
     session['url'] = url_for('home')
     return render_template('home.html')
 
-@app.route('/przyklady_wyk')
+@app.route('/przyklady_wyk', methods=['GET', 'POST'])
 def przyklady_wyk():
-    session['url'] = url_for('przyklady_wyk')
-    return render_template('przyklady_wyk.html')
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+            if request.form.get('zapisz'):
+                user = Users.query.filter_by(username=current_user.username).first()
+                if user.liked:
+                    liked_list = list(user.liked.split(','))
+                    if request.form.get('zapisz') not in liked_list:
+                        liked_list.append(request.form.get('zapisz'))
+                        user.liked = ','.join(liked_list)
+                        flash('Dodano do ulubionych')
+                else:
+                    user.liked = request.form.get('zapisz')
+                    flash('Dodano do ulubionych')
+                db.session.commit()
+                flash('Dodano do ulubionych')
+            if request.form.get('usun'):
+                user = Users.query.filter_by(username=current_user.username).first()
+                liked_list = list(user.liked.split(','))
+                if request.form.get('usun') in liked_list:
+                    liked_list.remove(request.form.get('usun'))
+                    user.liked = ','.join(liked_list)
+                    db.session.commit()
+                flash('Usunięto z ulubionych')
+        session['url'] = url_for('przyklady_wyk')
+        return render_template('przyklady_wyk.html')
+    else:
+        session['url'] = url_for('przyklady_wyk')
+        return render_template('przyklady_wyk.html')
 
 @app.route('/przyklady_log')
 def przyklady_log():

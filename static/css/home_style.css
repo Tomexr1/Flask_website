@@ -231,12 +231,27 @@ footer p a {
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
+    margin-top: 1rem;
 }
 
-aside a {
+.aside_button a {
     background-color: #3c280c;
 }
 
 aside h3 {
     font-size: 1.5rem;
+}
+
+aside ul li a {
+    color: #3c280c;
+    text-decoration: underline;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+aside ul {
+    text-align:  left;
+}
+aside ul li {
+    margin-bottom: 0.5rem;
 }
