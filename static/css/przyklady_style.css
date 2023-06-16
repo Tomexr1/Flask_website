@@ -211,7 +211,7 @@ h2 span:hover {
 #w_r5 {
     display: none;
 }
-#l_r1 {
+l_r1 {
     display: none;
 }
 #l_r2 {
@@ -226,6 +226,14 @@ h2 span:hover {
 #l_r5 {
     display: none;
 }
+
+.Treść h2 {
+    display: inline-block;
+}
+button {
+    cursor: pointer;
+}
+
 /* #Wykres1 {
     display: flex; 
 } */
@@ -292,12 +300,27 @@ footer p a {
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
+    margin-top: 1rem;
 }
 
-aside a {
+.aside_button a {
     background-color: #3c280c;
 }
 
 aside h3 {
     font-size: 1.5rem;
+}
+
+aside ul li a {
+    color: #3c280c;
+    text-decoration: underline;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+aside ul {
+    text-align:  left;
+}
+aside ul li {
+    margin-bottom: 0.5rem;
 }

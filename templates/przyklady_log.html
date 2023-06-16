@@ -286,12 +286,18 @@
     {% if current_user.is_authenticated %}
     <h2>Zalogowano jako</h2>
     <h2>{{ current_user.username }}</h2>
+    {% if current_user.liked %}
     Moje polubione przykłady:
     <ul>
-        {% for example in current_user.examples %}
-        <li><a href="/{{ example.type }}/{{ example.id }}">{{ example.title }}</a></li>
+        
+        {% set liked = current_user.liked.split(',') %}
+        {% for example in liked %}
+        <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
         {% endfor %}
     </ul>
+    {% else %}
+    Brak polubionych.
+    {% endif %}
     <div class="aside_button"><a href="/logout">Wyloguj</a></div>
     {% else %}
     <h3>Nie jesteś zalogowany</h3>
@@ -361,10 +367,16 @@
         $('#l_r5').toggle();
     });
 
-    $("aside a").on("mouseenter", function(){
+    $(".aside_button a").on("mouseenter", function(){
         $(this).css("background-color", "#9a7b4f");
     }).on("mouseleave", function(){
         $(this).css("background-color", "#3c280c");
+    });
+
+    $('aside ul li a').on("mouseenter", function(){
+        $(this).css("color", "#9a7b4f");
+    }).on("mouseleave", function(){
+        $(this).css("color", "#3c280c");
     });
 
     $("footer a").on("mouseenter", function(){
