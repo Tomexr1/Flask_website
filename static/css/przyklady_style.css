@@ -34,8 +34,8 @@ header {
     text-align: center;
     font-size: 3.8rem;
     color : #3c280c;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
-    font-family: 'LMRoman10', sans-serif;
+    font-family: 'Times New Roman', Arial, sans-serif;
+    /* font-family: 'LMRoman10', sans-serif; */
     text-decoration: underline;
     }
 hr {
