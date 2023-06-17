@@ -37,14 +37,15 @@ def hello_world():
 def sign_up():
     if not current_user.is_authenticated:
         if request.method == 'POST':
-            user = Users.query.filter_by(username=request.form.get('username')).first()
-            if user:
-                flash('Nazwa użytkownika zajęta')
-                return redirect(url_for('sign_up'))
-            new_user = Users(username=request.form.get('username'), password=request.form.get('password'))
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for('login'))
+            if request.form.get('username') and request.form.get('password'):
+                user = Users.query.filter_by(username=request.form.get('username')).first()
+                if user:
+                    flash('Nazwa użytkownika zajęta')
+                    return redirect(url_for('sign_up'))
+                new_user = Users(username=request.form.get('username'), password=request.form.get('password'))
+                db.session.add(new_user)
+                db.session.commit()
+                return redirect(url_for('login'))
         return render_template('sign_up.html')
     else:
         return redirect(url_for('home'))
