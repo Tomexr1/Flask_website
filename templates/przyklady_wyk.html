@@ -74,25 +74,15 @@ x &= -9
 <h2>Odpowiedź: \(x = -9\)</h2>
 </div>
 <br></br>
-<div class="card-body">
-    <br />
-    <div class="collapse" id="comments-">
-    </div>
-    <p class="card-text">
-        {% if comments|length > 0 %}
-        <a data-bs-toggle="nie pokazuj komentarzy" href="#comments-" role="button">
-            <button>zobacz {{comments|length}} komentarzy</button>
-        </a>
-        {% else %}
-        <small class="text-muted">brak komentarzy</small>
-        {% endif %}
-    </p>
+<style>
+    .comment-section {
+        display: none; /* Ukryj sekcję komentarzy domyślnie */
+    }
+</style>
+</head>
+<body>
+<button id="toggle-comments-btn" onclick="toggleComments()">Pokaż/Ukryj komentarze</button>
 
-    <form class="input-group mb-3" method="POST" action="/create-comment">
-        <input type="text" id="text" name="text" class="form-control" placeholder="tutaj"/>
-        <button type="submit" class="btn btn-primary">wyslij</button>
-    </form>
-</div>
 <div class="comment-section">
     <h2>Komentarze</h2>
     {% for comment in comments %}
@@ -103,6 +93,21 @@ x &= -9
         </div>
     {% endfor %}
 </div>
+
+<script>
+    function toggleComments() {
+        var commentSection = document.querySelector('.comment-section');
+        var toggleBtn = document.querySelector('#toggle-comments-btn');
+
+        if (commentSection.style.display === 'none') {
+            commentSection.style.display = 'block';
+            toggleBtn.textContent = 'Ukryj komentarze';
+        } else {
+            commentSection.style.display = 'none';
+            toggleBtn.textContent = 'Pokaż komentarze';
+        }
+    }
+</script>
 
 <br></br>
 <div class="Treść" id="Wykładnicze P2">
