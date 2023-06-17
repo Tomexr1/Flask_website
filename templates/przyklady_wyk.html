@@ -72,6 +72,37 @@ x &= -9
 <h2>Odpowiedź: \(x = -9\)</h2>
 </div>
 <br></br>
+<div class="card-body">
+    <br />
+    <div class="collapse" id="comments-">
+    </div>
+    <p class="card-text">
+        {% if comments|length > 0 %}
+        <a data-bs-toggle="nie pokazuj komentarzy" href="#comments-" role="button">
+            <button>zobacz {{comments|length}} komentarzy</button>
+        </a>
+        {% else %}
+        <small class="text-muted">brak komentarzy</small>
+        {% endif %}
+    </p>
+
+    <form class="input-group mb-3" method="POST" action="/create-comment">
+        <input type="text" id="text" name="text" class="form-control" placeholder="tutaj"/>
+        <button type="submit" class="btn btn-primary">wyslij</button>
+    </form>
+</div>
+<div class="comment-section">
+    <h2>Komentarze</h2>
+    {% for comment in comments %}
+        <div class="comment">
+            <p>{{ comment.author }}</p>
+            <p>{{ comment.text }}</p>
+            <small>{{ comment.date_created }}</small>
+        </div>
+    {% endfor %}
+</div>
+
+<br></br>
 <div class="Treść" id="Wykładnicze P2">
     <h2>Przykład 2.
         {% if current_user.is_authenticated %}

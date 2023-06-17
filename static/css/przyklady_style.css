@@ -67,13 +67,13 @@ nav {
         cursor: pointer;
     }
     a {
-        color: white;
+        color: black;
         padding: 0 2rem;
         font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
         text-decoration: none;
     }
     span {
-        color: white;
+        color: black;
         padding: 0 2rem;
         font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
         text-decoration: none;
@@ -90,7 +90,7 @@ nav {
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
     .dropdown-content a {
-        color: white;
+        color: black;
         padding: 0 2rem;
         font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
         text-decoration: none;
@@ -150,20 +150,20 @@ h1 {
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: center;
     text-decoration: underline;
-    color: white;
+    color: black;
     }
     
 .Treść {
     font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
-    color: white
+    color: black
     }
 .Rozwiązanie_widoczne {
     font-size: 1.rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
-    color: white
+    color: black
     }
 .Rozwiązanie h3 {
     font-size: 1.4rem;
@@ -176,14 +176,14 @@ h1 {
     font-size: 1.rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
-    color: white;
+    color: black;
 }
 main h2 {
-    color: white;
+    color: black;
 }
 
 h2 span {
-    color: white;
+    color: black;
     font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: center;
@@ -279,7 +279,7 @@ footer {
     background-color: #3c280c;
 }
 footer p {
-    color: white;
+    color: black;
     font-size: 1rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
@@ -287,7 +287,7 @@ footer p {
     padding: 1rem 0 1rem 2rem;
 }
 footer p a {
-    color: white;
+    color: black;
     font-size: 1rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     margin: 0;

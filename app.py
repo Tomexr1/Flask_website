@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
-
+from sqlalchemy.sql import func
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 
@@ -18,12 +18,27 @@ class Users(UserMixin, db.Model):
     username = db.Column(db.String(100), unique=True, nullable = False)
     password = db.Column(db.String(100), nullable = False)
     liked = db.Column(db.String(1000), nullable = True)
+    
+    def __repr__(self):
+        return '<Users %r>' % self.username
 
 db.init_app(app)
 
 with app.app_context():
     db.create_all()
 
+class Comment(db.Model):
+    __tablename__ = 'comment'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
+    author = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete="CASCADE"), nullable=False)
+    def __repr__(self):
+        return '<Comment %r>' % self.text
+
+with app.app_context():
+    db.create_all()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -88,6 +103,10 @@ def przyklady_wyk():
     if current_user.is_authenticated:
         pos = ""
         if request.method == 'POST':
+            if request.form.get('wyslij'):
+                pos = request.form.get('wyslij')
+                db.session.commit()
+
             if request.form.get('zapisz'):
                 pos = request.form.get('zapisz')
                 user = Users.query.filter_by(username=current_user.username).first()
@@ -113,12 +132,14 @@ def przyklady_wyk():
                 flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_wyk')
         if pos:
-            return render_template('przyklady_wyk.html', pos=pos)
+            comments = Comment.query.all()
+            return render_template('przyklady_wyk.html', pos=pos, comments=comments)
         else:
-            return render_template('przyklady_wyk.html')
+            comments = Comment.query.all()
+            return render_template('przyklady_wyk.html', comments=comments)
     else:
-        session['url'] = url_for('przyklady_wyk')
-        return render_template('przyklady_wyk.html')
+        session['url'] = url_for('przyklady_wyk',comments=comments)
+        return render_template('przyklady_wyk.html',comments=comments)
 
 @app.route('/przyklady_log', methods=['GET', 'POST'])
 def przyklady_log():
@@ -156,7 +177,18 @@ def przyklady_log():
     else:
         session['url'] = url_for('przyklady_log')
         return render_template('przyklady_log.html')
-
+        
+@app.route('/create-comment', methods=['POST'])
+def create_comment():
+    if current_user.is_authenticated:
+        text = request.form.get('text')
+        new_comment = Comment(text=text, author=current_user.username)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('przyklady_wyk')) # Update to the appropriate route
+    else:
+        return redirect(url_for('login'))
+    
 @app.route('/o_projekcie')
 def projekt():
     session['url'] = url_for('projekt')
