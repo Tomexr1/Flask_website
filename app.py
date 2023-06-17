@@ -77,10 +77,10 @@ def login():
                         return redirect(session['url'])
                     return redirect(url_for('home'))
                 else:
-                    flash('Złe hasło')
+                    flash('Podano nieprawidłowe hasło')
                     return redirect(url_for('login'))
             else:
-                flash('Nie ma takiego użytkownika')
+                flash('Podano błędne dane')
                 return redirect(url_for('login'))
         return render_template('login.html')
     else:
