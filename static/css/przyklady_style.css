@@ -69,14 +69,14 @@ nav {
         cursor: pointer;
     }
     a {
-        color: black;
+        color: white;
         padding: 0 2rem;
         /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         font-family: 'LMRoman10', sans-serif;
         text-decoration: none;
     }
     span {
-        color: black;
+        color: white;
         padding: 0 2rem;
         /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         font-family: 'LMRoman10', sans-serif;
@@ -94,7 +94,7 @@ nav {
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
     .dropdown-content a {
-        color: black;
+        color: white;
         padding: 0 2rem;
         /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         font-family: 'LMRoman10', sans-serif;
@@ -156,7 +156,7 @@ h1 {
     font-family: 'Amita', sans-serif;
     text-align: center;
     text-decoration: underline;
-    color: black;
+    color: white;
     }
     
 .Treść {
@@ -164,14 +164,14 @@ h1 {
     /* font-family: 'Times New Roman', Arial, sans-serif; */
     font-family: 'Amita', sans-serif;
     text-align: left;
-    color: black
+    color: white;
     }
 .Rozwiązanie_widoczne {
     font-size: 1.rem;
     /* font-family: 'Times New Roman', Arial, sans-serif; */
     font-family: 'Amita', sans-serif;
     text-align: left;
-    color: black
+    color: white;
     }
 .Rozwiązanie h3 {
     font-size: 1.4rem;
@@ -188,14 +188,14 @@ h3{
     font-family: 'Amita', sans-serif;
     /* font-family: 'Times New Roman', Arial, sans-serif; */
     text-align: left;
-    color: black;
+    color: white;
 }
 main h2 {
-    color: black;
+    color: white;
 }
 
 h2 span {
-    color: black;
+    color: white;
     font-size: 1.2rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: center;
@@ -283,7 +283,7 @@ footer {
     background-color: #3c280c;
 }
 footer p {
-    color: black;
+    color: white;
     font-size: 1rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: left;
@@ -291,7 +291,7 @@ footer p {
     padding: 1rem 0 1rem 2rem;
 }
 footer p a {
-    color: black;
+    color: white;
     font-size: 1rem;
     font-family: 'Times New Roman', Arial, sans-serif;
     margin: 0;
@@ -327,4 +327,9 @@ aside ul {
 }
 aside ul li {
     margin-bottom: 0.5rem;
+}
+
+.comment-section {
+    display: none; /* Ukryj sekcję komentarzy domyślnie */
+    color: white;
 }
