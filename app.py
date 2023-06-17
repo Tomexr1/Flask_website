@@ -138,6 +138,7 @@ def przyklady_wyk():
             comments = Comment.query.all()
             return render_template('przyklady_wyk.html', comments=comments)
     else:
+        comments = Comment.query.all()
         session['url'] = url_for('przyklady_wyk',comments=comments)
         return render_template('przyklady_wyk.html',comments=comments)
 
