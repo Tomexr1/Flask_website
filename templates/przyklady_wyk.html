@@ -388,10 +388,13 @@ x &= -9
     {% if current_user.liked %}
     Moje polubione przykłady:
     <ul>
-        
         {% set liked = current_user.liked.split(',') %}
         {% for example in liked %}
-        <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
+            {% if 'Wykładnicze' in example %}
+                <li><a href="{{ url_for('.przyklady_wyk', _anchor=example)}}">{{ example }}</a></li>
+            {% else %}
+                <li><a href="{{ url_for('.przyklady_log', _anchor=example)}}">{{ example }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
     {% else %}
@@ -416,6 +419,10 @@ x &= -9
     <a href="/o_autorach">O autorach</a>
     </p>
 </footer>
+
+{% if pos %}
+<script>document.getElementById('{{ pos }}').scrollIntoView();</script>
+{% endif %}  
   
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script>

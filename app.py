@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
@@ -24,7 +24,6 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-liked_dict = {}
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -38,14 +37,15 @@ def hello_world():
 def sign_up():
     if not current_user.is_authenticated:
         if request.method == 'POST':
-            user = Users.query.filter_by(username=request.form.get('username')).first()
-            if user:
-                flash('Nazwa użytkownika zajęta')
-                return redirect(url_for('sign_up'))
-            new_user = Users(username=request.form.get('username'), password=request.form.get('password'))
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for('login'))
+            if request.form.get('username') and request.form.get('password'):
+                user = Users.query.filter_by(username=request.form.get('username')).first()
+                if user:
+                    flash('Nazwa użytkownika zajęta')
+                    return redirect(url_for('sign_up'))
+                new_user = Users(username=request.form.get('username'), password=request.form.get('password'))
+                db.session.add(new_user)
+                db.session.commit()
+                return redirect(url_for('login'))
         return render_template('sign_up.html')
     else:
         return redirect(url_for('home'))
@@ -86,8 +86,10 @@ def home():
 @app.route('/przyklady_wyk', methods=['GET', 'POST'])
 def przyklady_wyk():
     if current_user.is_authenticated:
+        pos = ""
         if request.method == 'POST':
             if request.form.get('zapisz'):
+                pos = request.form.get('zapisz')
                 user = Users.query.filter_by(username=current_user.username).first()
                 if user.liked:
                     liked_list = list(user.liked.split(','))
@@ -101,6 +103,7 @@ def przyklady_wyk():
                 db.session.commit()
                 flash('Dodano do ulubionych')
             if request.form.get('usun'):
+                pos = request.form.get('usun')
                 user = Users.query.filter_by(username=current_user.username).first()
                 liked_list = list(user.liked.split(','))
                 if request.form.get('usun') in liked_list:
@@ -109,7 +112,10 @@ def przyklady_wyk():
                     db.session.commit()
                 flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_wyk')
-        return render_template('przyklady_wyk.html')
+        if pos:
+            return render_template('przyklady_wyk.html', pos=pos)
+        else:
+            return render_template('przyklady_wyk.html')
     else:
         session['url'] = url_for('przyklady_wyk')
         return render_template('przyklady_wyk.html')
@@ -117,8 +123,10 @@ def przyklady_wyk():
 @app.route('/przyklady_log', methods=['GET', 'POST'])
 def przyklady_log():
     if current_user.is_authenticated:
+        pos = ""
         if request.method == 'POST':
             if request.form.get('zapisz'):
+                pos = request.form.get('zapisz')
                 user = Users.query.filter_by(username=current_user.username).first()
                 if user.liked:
                     liked_list = list(user.liked.split(','))
@@ -132,6 +140,7 @@ def przyklady_log():
                 db.session.commit()
                 flash('Dodano do ulubionych')
             if request.form.get('usun'):
+                pos = request.form.get('usun')
                 user = Users.query.filter_by(username=current_user.username).first()
                 liked_list = list(user.liked.split(','))
                 if request.form.get('usun') in liked_list:
@@ -140,7 +149,10 @@ def przyklady_log():
                     db.session.commit()
                 flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_log')
-        return render_template('przyklady_log.html')
+        if pos:
+            return render_template('przyklady_log.html', pos=pos)
+        else:
+            return render_template('przyklady_log.html')
     else:
         session['url'] = url_for('przyklady_log')
         return render_template('przyklady_log.html')
