@@ -66,13 +66,15 @@ nav {
     a {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        font-family: 'LMRoman10', sans-serif;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         text-decoration: none;
     }
     span {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        font-family: 'LMRoman10', sans-serif;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         text-decoration: none;
         display: inline-block;
     }
@@ -82,14 +84,15 @@ nav {
         position: absolute;
         background-color: #3c280c;
         z-index: 1;
-        width: 21.1rem;
+        width: 19.2rem;
 
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
     .dropdown-content a {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        font-family: 'LMRoman10', sans-serif;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
         text-decoration: none;
         display: block;
     }

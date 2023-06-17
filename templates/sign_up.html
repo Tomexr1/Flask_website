@@ -11,10 +11,10 @@
 <form method="POST" action="#">
     <label for="username">Nazwa uzytkownika</label> 
     <input type="text" name="username" placeholder="Nazwa użytkownika"> 
-    <br>
+    <p>
     <label for="password">Hasło</label>
     <input type="password" name="password" placeholder="Hasło">
-    <br>
+    <p>
     <button type="submit">Zarejestruj</button>
     {% if 'url' in session %}
         <a href="{{ session['url'] }}">Powrót</a>

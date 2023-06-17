@@ -45,3 +45,7 @@ a {
     /* place it in bottom right */
     /* float: right; */
 }
+
+p {
+    line-height: 20px
+}

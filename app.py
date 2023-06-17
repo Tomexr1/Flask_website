@@ -62,10 +62,10 @@ def login():
                         return redirect(session['url'])
                     return redirect(url_for('home'))
                 else:
-                    flash('Złe hasło')
+                    flash('Podano nieprawidłowe hasło')
                     return redirect(url_for('login'))
             else:
-                flash('Nie ma takiego użytkownika')
+                flash('Podano błędne dane')
                 return redirect(url_for('login'))
         return render_template('login.html')
     else:
@@ -114,10 +114,36 @@ def przyklady_wyk():
         session['url'] = url_for('przyklady_wyk')
         return render_template('przyklady_wyk.html')
 
-@app.route('/przyklady_log')
+@app.route('/przyklady_log', methods=['GET', 'POST'])
 def przyklady_log():
-    session['url'] = url_for('przyklady_log')
-    return render_template('przyklady_log.html')
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+            if request.form.get('zapisz'):
+                user = Users.query.filter_by(username=current_user.username).first()
+                if user.liked:
+                    liked_list = list(user.liked.split(','))
+                    if request.form.get('zapisz') not in liked_list:
+                        liked_list.append(request.form.get('zapisz'))
+                        user.liked = ','.join(liked_list)
+                        flash('Dodano do ulubionych')
+                else:
+                    user.liked = request.form.get('zapisz')
+                    flash('Dodano do ulubionych')
+                db.session.commit()
+                flash('Dodano do ulubionych')
+            if request.form.get('usun'):
+                user = Users.query.filter_by(username=current_user.username).first()
+                liked_list = list(user.liked.split(','))
+                if request.form.get('usun') in liked_list:
+                    liked_list.remove(request.form.get('usun'))
+                    user.liked = ','.join(liked_list)
+                    db.session.commit()
+                flash('Usunięto z ulubionych')
+        session['url'] = url_for('przyklady_log')
+        return render_template('przyklady_log.html')
+    else:
+        session['url'] = url_for('przyklady_log')
+        return render_template('przyklady_log.html')
 
 @app.route('/o_projekcie')
 def projekt():

@@ -7,10 +7,11 @@ html {
     }
 /* set background on top of the main one */
 main {
-    background-image: url(/static/graphics/chalkboard.pdf);
+    background-image: url(/static/graphics/black.pdf);
     width: 80%;
     margin: 2rem auto;
     padding : 1% 5%;
+    background-size: cover;
     }
 
 aside {
@@ -33,7 +34,8 @@ header {
     text-align: center;
     font-size: 3.8rem;
     color : #3c280c;
-    font-family: 'Times New Roman', Arial, sans-serif;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-family: 'LMRoman10', sans-serif;
     text-decoration: underline;
     }
 hr {
@@ -69,13 +71,15 @@ nav {
     a {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
+        font-family: 'LMRoman10', sans-serif;
         text-decoration: none;
     }
     span {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
+        font-family: 'LMRoman10', sans-serif;
         text-decoration: none;
         display: inline-block;
     }
@@ -85,14 +89,15 @@ nav {
         position: absolute;
         background-color: #3c280c;
         z-index: 1;
-        width: 21.1rem;
+        width: 19.2rem;
 
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
     .dropdown-content a {
         color: white;
         padding: 0 2rem;
-        font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace;
+        /* font-family: 'Latin Modern Mono', 'Courier New', Courier, monospace; */
+        font-family: 'LMRoman10', sans-serif;
         text-decoration: none;
         display: block;
     }
@@ -147,7 +152,8 @@ article hr {
     }
 h1 {
     font-size: 2rem;
-    font-family: 'Times New Roman', Arial, sans-serif;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-family: 'Amita', sans-serif;
     text-align: center;
     text-decoration: underline;
     color: white;
@@ -155,26 +161,32 @@ h1 {
     
 .Treść {
     font-size: 1.2rem;
-    font-family: 'Times New Roman', Arial, sans-serif;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-family: 'Amita', sans-serif;
     text-align: left;
     color: white
     }
 .Rozwiązanie_widoczne {
     font-size: 1.rem;
-    font-family: 'Times New Roman', Arial, sans-serif;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-family: 'Amita', sans-serif;
     text-align: left;
     color: white
     }
 .Rozwiązanie h3 {
     font-size: 1.4rem;
-    font-family: 'Times New Roman', Arial, sans-serif;
-    text-align: center;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-family: 'Amita', sans-serif;
+    text-align: left;
     text-decoration: none;
-    
     }
+h3{
+    text-align: center;
+}
 .Rozwiązanie_ukryte {
     font-size: 1.rem;
-    font-family: 'Times New Roman', Arial, sans-serif;
+    font-family: 'Amita', sans-serif;
+    /* font-family: 'Times New Roman', Arial, sans-serif; */
     text-align: left;
     color: white;
 }
@@ -211,7 +223,7 @@ h2 span:hover {
 #w_r5 {
     display: none;
 }
-l_r1 {
+#l_r1 {
     display: none;
 }
 #l_r2 {
@@ -226,14 +238,6 @@ l_r1 {
 #l_r5 {
     display: none;
 }
-
-.Treść h2 {
-    display: inline-block;
-}
-button {
-    cursor: pointer;
-}
-
 /* #Wykres1 {
     display: flex; 
 } */
