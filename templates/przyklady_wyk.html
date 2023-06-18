@@ -390,9 +390,15 @@ x &= -9
 
 
     <form action="{{ url_for('create_comment_wyk') }}" method="POST">
+        {% if current_user.is_authenticated %}
         <textarea name="text" rows="4" cols="126" placeholder="Wprowadź swój komentarz" style="resize: none;"></textarea>
         <br>
         <input type="submit" value="Wyślij komentarz">
+    {% else %}
+        <p>Aby dodać komentarz, zaloguj się</p>
+        <br>
+        <input type="submit" value="Zaloguj się">
+    {% endif %}
     </form>
     <br></br>
     <h2>Komentarze ({{comments|length}})</h2>

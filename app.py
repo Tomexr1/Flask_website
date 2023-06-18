@@ -31,7 +31,7 @@ class Comment(db.Model):
     __tablename__ = 'comment'
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime(timezone=False), default=func.now())
+    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     author = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="CASCADE"), nullable=False)
     def __repr__(self):
@@ -41,11 +41,11 @@ class Comment2(db.Model):
     __tablename__ = 'comment2'
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime(timezone=False), default=func.now())
+    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     author = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="CASCADE"), nullable=False)
     def __repr__(self):
-        return '<Comment2 %r>' % self.text
+        return '<Comment %r>' % self.text
 
 with app.app_context():
     db.create_all()
@@ -204,7 +204,9 @@ def create_comment_wyk():
         db.session.commit()
         return redirect(url_for('przyklady_wyk')) 
     else:
+        flash('Aby dodać komentarz, musisz się zalogować.', 'warning')
         return redirect(url_for('login'))
+        
     
 @app.route('/create-comment_log', methods=['POST'])
 def create_comment_log():
@@ -215,6 +217,7 @@ def create_comment_log():
         db.session.commit()
         return redirect(url_for('przyklady_log')) 
     else:
+        flash('Aby dodać komentarz, musisz się zalogować.', 'warning')
         return redirect(url_for('login'))
     
 @app.route('/o_projekcie')
