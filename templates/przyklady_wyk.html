@@ -74,46 +74,7 @@ x &= -9
 <h2>Odpowiedź: \(x = -9\)</h2>
 </div>
 <br></br>
-<style>
-    .comment-section-container {
-        width: 600px; /* Dostosuj szerokość kontenera do swoich preferencji */
-        height: 200px; /* Dostosuj wysokość kontenera do swoich preferencji */
-        overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
-        border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
-        padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
-    }
-    
-    .comment {margin-bottom: 10px;}
-    </style>
-    
-    <form action="{{ url_for('create_comment') }}" method="POST">
-        <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
-        <input type="submit" value="Wyślij komentarz">
-    </form>
-    <br></br>
-    <h2>Komentarze</h2>
-    <button id="toggle-comments-btn" onclick="toggleComments()">Pokaż/Ukryj komentarze</button>
-    
-    <div class="comment-section-container">
-        <div class="comment-section">
-            {% for comment in comments %}
-                <div class="comment">
-                    <p>{{ comment.author }}</p>
-                    <p>{{ comment.text }}</p>
-                    <small>{{ comment.date_created }}</small>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-    
-    <script>
-    function toggleComments() {
-        var commentSectionContainer = document.querySelector('.comment-section-container');
-        commentSectionContainer.classList.toggle('show-comments');
-    }
-    </script>
 
-<br></br>
 
 <div class="Treść" id="Wykładnicze P2">
     <h2>Przykład 2.
@@ -423,7 +384,46 @@ x &= -9
     </h3>
     <h2>Odpowiedź: \(x = 2 \vee x = -1\).</h2>
     </div>
+<style>
+    .comment-section-container {
+        width: 800px; /* Dostosuj szerokość kontenera do swoich preferencji */
+        height: 200px; /* Dostosuj wysokość kontenera do swoich preferencji */
+        overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
+        border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
+        padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
+    }
+    
+    .comment {margin-bottom: 10px;}
+</style>
+    
+    <form action="{{ url_for('create_comment') }}" method="POST">
+        <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
+        <input type="submit" value="Wyślij komentarz">
+    </form>
+    <br></br>
+    <h2>Komentarze ({{comments|length}})</h2>
+    <button id="toggle-comments-btn" onclick="toggleComments()">Pokaż/Ukryj komentarze</button>
+    
+    <div class="comment-section-container">
+        <div class="comment-section">
+            {% for comment in comments %}
+                <div class="comment">
+                    <p>{{ comment.author }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment.date_created }}</small></p>
+                    <p>{{ comment.text }}</p>
+                    <hr style="height:0.1px;">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script>
+    function toggleComments() {
+        var commentSectionContainer = document.querySelector('.comment-section-container');
+        commentSectionContainer.classList.toggle('show-comments');
+    }
+    </script>
 </main>
+
 
 <aside>
     {% if current_user.is_authenticated %}
