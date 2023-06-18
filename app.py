@@ -186,7 +186,7 @@ def create_comment():
         new_comment = Comment(text=text, author=current_user.username)
         db.session.add(new_comment)
         db.session.commit()
-        return redirect(url_for('przyklady_wyk')) # Update to the appropriate route
+        return redirect(url_for('przyklady_wyk')) 
     else:
         return redirect(url_for('login'))
     
