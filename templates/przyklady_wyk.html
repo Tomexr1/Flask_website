@@ -384,21 +384,25 @@ x &= -9
     </h3>
     <h2>Odpowiedź: \(x = 2 \vee x = -1\).</h2>
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+
 
     <form action="{{ url_for('create_comment_wyk') }}" method="POST">
         <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
+        <br>
         <input type="submit" value="Wyślij komentarz">
     </form>
     <br></br>
     <h2>Komentarze ({{comments|length}})</h2>
-    <button id="toggle-comments-btn" onclick="toggleComments()">Pokaż/Ukryj komentarze</button>
+    <button id="toggle-comments-btn" onclick="toggleComments()">Ukryj komentarze</button>
         
     <div class="comment-section-container">
         <div class="comment-section {% if hide_comments %}hide-comments{% endif %}">
-            {% for comment in comments %}
+            {% for comment in comments|reverse %}
                 <div class="comment">
-                    <p>{{ comment.author }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment.date_created }}</small></p>
-                    <p>{{ comment.text }}</p>
+                    <p><strong>{{ comment.author }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment.date_created }}</small></p>       <p>{{ comment.text }}</p>
                     <hr style="height:0.1px;">
                 </div>
             {% endfor %}
@@ -535,7 +539,14 @@ x &= -9
     function toggleComments() {
         var commentSectionContainer = document.querySelector('.comment-section-container');
         commentSectionContainer.classList.toggle('hide-comments');
+        
+        var toggleButton = document.getElementById('toggle-comments-btn');
+        if (commentSectionContainer.classList.contains('hide-comments')) {
+            toggleButton.textContent = 'Pokaż komentarze';
+        } else {
+            toggleButton.textContent = 'Ukryj komentarze';
+        }
     }
-</script>
+    </script>
 </body>
 </html>

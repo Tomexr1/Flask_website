@@ -377,25 +377,29 @@
     </h3>
     <h2>Odpowiedź: \(x = 3 \vee x=5\).</h2>
     </div>
-    <form action="{{ url_for('create_comment_log') }}" method="POST">
-        <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
-        <input type="submit" value="Wyślij komentarz">
-    </form>
-    <br></br>
-    <h2>Komentarze ({{comments2|length}})</h2>
-    <button id="toggle-comments2-btn" onclick="toggleComments2()">Pokaż/Ukryj komentarze</button>
-        
-    <div class="comment2-section-container">
-        <div class="comment2-section {% if hide_comments2 %}hide-comments2{% endif %}">
-            {% for comment2 in comments2 %}
-                <div class="comment2">
-                    <p>{{ comment2.author }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment2.date_created }}</small></p>
-                    <p>{{ comment2.text }}</p>
-                    <hr style="height:0.1px;">
-                </div>
-            {% endfor %}
-        </div>
+<br></br>
+<br></br>
+<br></br>
+
+<form action="{{ url_for('create_comment_log') }}" method="POST">
+    <textarea name="text" rows="4" cols="126" placeholder="Wprowadź swój komentarz"></textarea>
+    <br>
+    <input type="submit" value="Wyślij komentarz">
+</form>
+<br></br>
+<h2>Komentarze ({{comments2|length}})</h2>
+<button id="toggle-comments2-btn" onclick="toggleComments2()">Ukryj komentarze</button>
+    
+<div class="comment2-section-container">
+    <div class="comment2-section {% if hide_comments2 %}hide-comments2{% endif %}">
+        {% for comment2 in comments2|reverse %}
+            <div class="comment2">
+                <p><strong>{{ comment2.author }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment2.date_created }}</small></p>                <p>{{ comment2.text }}</p>
+                <hr style="height:0.1px;">
+            </div>
+        {% endfor %}
     </div>
+</div>
         
 </main>
 
@@ -523,9 +527,16 @@
 </script>
 <script>
     function toggleComments2() {
-        var comment2SectionContainer = document.querySelector('.comment2-section-container');
-        comment2SectionContainer.classList.toggle('hide-comments2');
+        var commentSectionContainer = document.querySelector('.comment2-section-container');
+        commentSectionContainer.classList.toggle('hide-comments2');
+        
+        var toggleButton = document.getElementById('toggle-comments2-btn');
+        if (commentSectionContainer.classList.contains('hide-comments2')) {
+            toggleButton.textContent = 'Pokaż komentarze';
+        } else {
+            toggleButton.textContent = 'Ukryj komentarze';
+        }
     }
-</script>
+    </script>
 </body>
 </html>
