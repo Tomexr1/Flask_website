@@ -390,7 +390,7 @@ x &= -9
 
 
     <form action="{{ url_for('create_comment_wyk') }}" method="POST">
-        <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
+        <textarea name="text" rows="4" cols="126" placeholder="Wprowadź swój komentarz"></textarea>
         <br>
         <input type="submit" value="Wyślij komentarz">
     </form>
@@ -441,7 +441,7 @@ x &= -9
 
 
 <footer>
-    <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak |
+    <p>&copy; 2023 Joanna Kusy, Tomasz Srebniak, Igor Kociszewski |
     <a href="/home">Główna</a> |
     <a href="/przyklady_wyk">Funkcje wykładnicze</a> |
     <a href="/przyklady_log">Funkcje logarytmiczne</a> |
@@ -533,9 +533,6 @@ x &= -9
     }).on("mouseleave", function(e){
         $(".dropdown-content a").css("background-color", "#3c280c");
     });
-
-</script>
-<script>
     function toggleComments() {
         var commentSectionContainer = document.querySelector('.comment-section-container');
         commentSectionContainer.classList.toggle('hide-comments');
@@ -547,6 +544,7 @@ x &= -9
             toggleButton.textContent = 'Ukryj komentarze';
         }
     }
-    </script>
+
+</script>
 </body>
 </html>
