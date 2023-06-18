@@ -125,12 +125,9 @@ def przyklady_wyk():
                     if request.form.get('zapisz') not in liked_list:
                         liked_list.append(request.form.get('zapisz'))
                         user.liked = ','.join(liked_list)
-                        flash('Dodano do ulubionych')
                 else:
                     user.liked = request.form.get('zapisz')
-                    flash('Dodano do ulubionych')
                 db.session.commit()
-                flash('Dodano do ulubionych')
             if request.form.get('usun'):
                 pos = request.form.get('usun')
                 user = Users.query.filter_by(username=current_user.username).first()
@@ -139,7 +136,6 @@ def przyklady_wyk():
                     liked_list.remove(request.form.get('usun'))
                     user.liked = ','.join(liked_list)
                     db.session.commit()
-                flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_wyk')
         if pos:
             comments = Comment.query.all()
@@ -168,12 +164,9 @@ def przyklady_log():
                     if request.form.get('zapisz') not in liked_list:
                         liked_list.append(request.form.get('zapisz'))
                         user.liked = ','.join(liked_list)
-                        flash('Dodano do ulubionych')
                 else:
                     user.liked = request.form.get('zapisz')
-                    flash('Dodano do ulubionych')
                 db.session.commit()
-                flash('Dodano do ulubionych')
             if request.form.get('usun'):
                 pos = request.form.get('usun')
                 user = Users.query.filter_by(username=current_user.username).first()
@@ -182,7 +175,6 @@ def przyklady_log():
                     liked_list.remove(request.form.get('usun'))
                     user.liked = ','.join(liked_list)
                     db.session.commit()
-                flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_log')
         if pos:
             comments2 = Comment2.query.all()

@@ -144,54 +144,50 @@ aside {
     flex: 2;
 }
 
-article hr {
+hr {
     width: 100%;
     height: 0.3rem;
-    background-color: gray;
-    opacity: 0.5;
-    }
+    background-color: rgb(255, 255, 255);
+}
 h1 {
     font-size: 2rem;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
     font-family: 'Amita', sans-serif;
     text-align: center;
     text-decoration: underline;
     color: white;
-    }
+}
     
 .Treść {
     font-size: 1.2rem;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
     font-family: 'Amita', sans-serif;
     text-align: left;
     color: white;
-    }
+}
 .Rozwiązanie_widoczne {
-    font-size: 1.rem;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
+    font-size: 1rem; 
     font-family: 'Amita', sans-serif;
     text-align: left;
     color: white;
-    }
+}
 .Rozwiązanie h3 {
     font-size: 1.4rem;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
     font-family: 'Amita', sans-serif;
     text-align: left;
     text-decoration: none;
-    }
+}
 h3{
     text-align: center;
 }
 .Rozwiązanie_ukryte {
-    font-size: 1.rem;
+    font-size: 1rem;
     font-family: 'Amita', sans-serif;
-    /* font-family: 'Times New Roman', Arial, sans-serif; */
     text-align: left;
     color: white;
 }
+
 main h2 {
     color: white;
+    margin-bottom: 0;
 }
 
 h2 span {
@@ -200,7 +196,6 @@ h2 span {
     font-family: 'Times New Roman', Arial, sans-serif;
     text-align: center;
     text-decoration: underline;
-    /* display: inline-block; */
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -238,33 +233,22 @@ h2 span:hover {
 #l_r5 {
     display: none;
 }
-/* #Wykres1 {
-    display: flex; 
-} */
 #box1 {
-    /* height: 20rem;
-    margin-bottom: 6rem; */
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
 #box2 {
-    /* height: 20rem;
-    margin-bottom: 6rem; */
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
 #box3 {
-    /* height: 20rem;
-    margin-bottom: 6rem; */
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
 #box4 {
-    /* height: 20rem;
-    margin-bottom: 6rem; */
     margin-left: auto;
     margin-right: auto;
     width: 40%;
@@ -333,29 +317,49 @@ aside ul li {
 }
 
 .comment2-section-container {
-            width: 800px; /* Dostosuj szerokość kontenera do swoich preferencji */
-            height: 200px; /* Dostosuj wysokość kontenera do swoich preferencji */
-            overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
-            border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
-            padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
-        }
-        
-        .comment2 {margin-bottom: 10px;}
-        .hide-comments2 { display: none; }
+    width: 80%; /* Dostosuj szerokość kontenera do swoich preferencji */
+    height: 20rem; /* Dostosuj wysokość kontenera do swoich preferencji */
+    overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
+    border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
+    padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
+    margin-bottom: 3rem;
 }
+        
+.comment2 {margin-bottom: 10px;}
+.hide-comments2 { display: none; }
 .comment-section {
     color: white;
 }
 .comment-section-container {
-            width: 800px; /* Dostosuj szerokość kontenera do swoich preferencji */
-            height: 200px; /* Dostosuj wysokość kontenera do swoich preferencji */
-            overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
-            border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
-            padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
-        }
+    width: 80%; /* Dostosuj szerokość kontenera do swoich preferencji */
+    height: 20rem; /* Dostosuj wysokość kontenera do swoich preferencji */
+    overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
+    border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
+    padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
+    /* margin-left: 3rem; */
+    /* margin-right: 3rem; */
+    margin-bottom: 3rem;
+}
         
-        .comment {margin-bottom: 10px;}
-        .hide-comments { display: none; }
+.comment {margin-bottom: 10px;}
+.hide-comments { display: none; }
+
+textarea {
+    resize: none;
+    width: 82.5%;
+    height: 5rem;
 }
 
+form p {color: white;}
 
+.comment hr {
+    height: 0.1px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.kom_send:hover {
+    cursor: pointer;
+}
