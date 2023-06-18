@@ -384,28 +384,17 @@ x &= -9
     </h3>
     <h2>Odpowiedź: \(x = 2 \vee x = -1\).</h2>
     </div>
-<style>
-    .comment-section-container {
-        width: 800px; /* Dostosuj szerokość kontenera do swoich preferencji */
-        height: 200px; /* Dostosuj wysokość kontenera do swoich preferencji */
-        overflow-y: scroll; /* Dodaje pasek przewijania tylko w osi Y, gdy zawartość przekracza rozmiar kontenera */
-        border: 1px solid #ccc; /* Dodaj obramowanie kontenera */
-        padding: 10px; /* Dodaj wypełnienie wewnątrz kontenera */
-    }
-    
-    .comment {margin-bottom: 10px;}
-</style>
-    
-    <form action="{{ url_for('create_comment') }}" method="POST">
+
+    <form action="{{ url_for('create_comment_wyk') }}" method="POST">
         <textarea name="text" rows="4" cols="40" placeholder="Wprowadź swój komentarz"></textarea>
         <input type="submit" value="Wyślij komentarz">
     </form>
     <br></br>
     <h2>Komentarze ({{comments|length}})</h2>
     <button id="toggle-comments-btn" onclick="toggleComments()">Pokaż/Ukryj komentarze</button>
-    
+        
     <div class="comment-section-container">
-        <div class="comment-section">
+        <div class="comment-section {% if hide_comments %}hide-comments{% endif %}">
             {% for comment in comments %}
                 <div class="comment">
                     <p>{{ comment.author }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>{{ comment.date_created }}</small></p>
@@ -415,13 +404,6 @@ x &= -9
             {% endfor %}
         </div>
     </div>
-    
-    <script>
-    function toggleComments() {
-        var commentSectionContainer = document.querySelector('.comment-section-container');
-        commentSectionContainer.classList.toggle('show-comments');
-    }
-    </script>
 </main>
 
 
@@ -548,18 +530,12 @@ x &= -9
         $(".dropdown-content a").css("background-color", "#3c280c");
     });
 
+</script>
+<script>
     function toggleComments() {
-        var commentSection = document.querySelector('.comment-section');
-        var toggleBtn = document.querySelector('#toggle-comments-btn');
-
-        if (commentSection.style.display === 'none') {
-            commentSection.style.display = 'block';
-            toggleBtn.textContent = 'Ukryj komentarze';
-        } else {
-            commentSection.style.display = 'none';
-            toggleBtn.textContent = 'Pokaż komentarze';
-        }
-    };
+        var commentSectionContainer = document.querySelector('.comment-section-container');
+        commentSectionContainer.classList.toggle('hide-comments');
+    }
 </script>
 </body>
 </html>

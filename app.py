@@ -31,11 +31,21 @@ class Comment(db.Model):
     __tablename__ = 'comment'
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
+    date_created = db.Column(db.DateTime(timezone=False), default=func.now())
     author = db.Column(db.Integer, db.ForeignKey(
         'users.id', ondelete="CASCADE"), nullable=False)
     def __repr__(self):
         return '<Comment %r>' % self.text
+    
+class Comment2(db.Model):
+    __tablename__ = 'comment2'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime(timezone=False), default=func.now())
+    author = db.Column(db.Integer, db.ForeignKey(
+        'users.id', ondelete="CASCADE"), nullable=False)
+    def __repr__(self):
+        return '<Comment2 %r>' % self.text
 
 with app.app_context():
     db.create_all()
@@ -147,6 +157,9 @@ def przyklady_log():
     if current_user.is_authenticated:
         pos = ""
         if request.method == 'POST':
+            if request.form.get('wyslij'):
+                pos = request.form.get('wyslij')
+                db.session.commit()
             if request.form.get('zapisz'):
                 pos = request.form.get('zapisz')
                 user = Users.query.filter_by(username=current_user.username).first()
@@ -172,21 +185,35 @@ def przyklady_log():
                 flash('Usunięto z ulubionych')
         session['url'] = url_for('przyklady_log')
         if pos:
-            return render_template('przyklady_log.html', pos=pos)
+            comments2 = Comment2.query.all()
+            return render_template('przyklady_log.html', pos=pos, comments2=comments2)
         else:
-            return render_template('przyklady_log.html')
+            comments2 = Comment2.query.all()            
+            return render_template('przyklady_log.html',comments2=comments2)
     else:
-        session['url'] = url_for('przyklady_log')
-        return render_template('przyklady_log.html')
+        comments2 = Comment2.query.all()
+        session['url'] = url_for('przyklady_log',comments2=comments2)
+        return render_template('przyklady_log.html',comments2=comments2)
         
-@app.route('/create-comment', methods=['POST'])
-def create_comment():
+@app.route('/create-comment_wyk', methods=['POST'])
+def create_comment_wyk():
     if current_user.is_authenticated:
         text = request.form.get('text')
         new_comment = Comment(text=text, author=current_user.username)
         db.session.add(new_comment)
         db.session.commit()
         return redirect(url_for('przyklady_wyk')) 
+    else:
+        return redirect(url_for('login'))
+    
+@app.route('/create-comment_log', methods=['POST'])
+def create_comment_log():
+    if current_user.is_authenticated:
+        text = request.form.get('text')
+        new_comment = Comment2(text=text, author=current_user.username)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('przyklady_log')) 
     else:
         return redirect(url_for('login'))
     
